@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="Gareshma Nagalapatti | Software Engineer Portfolio">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta property="og:title" content="Gareshma Nagalapatti Portfolio">
@@ -25,11 +26,31 @@
 html {
   scroll-behavior: smooth;
 }
+
+@media (max-width: 768px) {
+  #sidebar {
+    position: fixed;
+    width: 75%;
+    height: 100%;
+    z-index: 60;
+    background-color: #eef2ff;
+    box-shadow: 2px 0 10px rgba(0,0,0,0.1);
+  }
+}
+
+
 </style>
 </head>
 <body class="bg-[#eef1fd]">
+
+<!-- Hamburger Button -->
+<button id="menuToggle" class="fixed top-4 left-4 z-50 bg-indigo-600 text-white p-2 rounded-lg shadow-lg md:hidden">
+  <i class="ri-menu-line text-xl"></i>
+</button>
+<div class="md:flex">
   <!-- Sidebar -->
-<aside class="w-64 min-h-screen bg-gradient-to-b from-indigo-100 to-indigo-200 text-indigo-900 shadow-lg fixed top-0 left-0 z-50 flex flex-col justify-between text-[13px]">
+
+<aside id = "sidebar" class="w-64 min-h-screen bg-gradient-to-b from-indigo-100 to-indigo-200 text-indigo-900 shadow-lg fixed top-0 left-0 z-50 flex flex-col justify-between text-[13px]">
 
   <!-- Profile Section -->
   <div>
@@ -143,7 +164,7 @@ class="fixed bottom-6 right-6 bg-indigo-600 text-white p-3 rounded-full shadow-l
 
   
   <!-- Main Content -->
-  <main class="ml-64 flex-grow p-8">
+  <main class="transition-all duration-300 md:ml-64 p-6">
   <!-- About Section -->
 <section id="about" class="bg-gradient-to-r from-[#eef1fd] to-[#e3eaff] py-16 px-6">
   <div class="max-w-4xl mx-auto bg-white rounded-2xl shadow-xl p-8 sm:p-10 border border-indigo-100">
@@ -1054,7 +1075,7 @@ class="fixed bottom-6 right-6 bg-indigo-600 text-white p-3 rounded-full shadow-l
 </section>
 
   </main>
-
+</div>
   <!-- Load EmailJS SDK -->
 <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
 <script>
@@ -1096,6 +1117,32 @@ window.addEventListener("scroll", () => {
   }
 });
 
+const toggleBtn = document.getElementById("menuToggle");
+  const sidebar = document.getElementById("sidebar");
+  const overlay = document.getElementById("overlay");
+
+  toggleBtn.addEventListener("click", () => {
+    sidebar.classList.toggle("-translate-x-full");
+    overlay.classList.toggle("hidden");
+  });
+
+  overlay.addEventListener("click", () => {
+    sidebar.classList.add("-translate-x-full");
+    overlay.classList.add("hidden");
+  });
+
+  // On resize - auto close sidebar on zoom-in (mobile)
+  window.addEventListener("resize", () => {
+    if (window.innerWidth >= 768) {
+      sidebar.classList.remove("-translate-x-full");
+      sidebar.classList.remove("hidden");
+      overlay.classList.add("hidden");
+    } else {
+      sidebar.classList.add("-translate-x-full");
+      sidebar.classList.add("hidden");
+    }
+  });
+
 </script>
 <!-- Stylish Scroll to Top Button -->
 <button id="scrollToTopBtn"
@@ -1104,6 +1151,8 @@ window.addEventListener("scroll", () => {
   <i class="ri-arrow-up-line text-2xl"></i>
 </button>
 
+<div id="overlay" class="fixed inset-0 bg-black bg-opacity-40 z-30 hidden md:hidden"></div>
   
 </body>
+
 </html>
