@@ -1,0 +1,117 @@
+body {
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background: #f5f7fb;
+    color: #333;
+    display: flex;
+  }
+  
+  .container {
+    display: flex;
+    width: 100%;
+  }
+  
+  .sidebar {
+    width: 250px;
+    background: #e6e9f8;
+    padding: 2rem 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100vh;
+    position: fixed;
+  }
+  
+  .profile {
+    text-align: center;
+  }
+  
+  .profile img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    margin-bottom: 1rem;
+  }
+  
+  .nav {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .nav li {
+    padding: 0.8rem 1rem;
+    cursor: pointer;
+    border-radius: 8px;
+    margin-bottom: 0.5rem;
+  }
+  
+  .nav li.active, .nav li:hover {
+    background: #d8dbf1;
+    font-weight: bold;
+  }
+  
+  .social-icons {
+    display: flex;
+    justify-content: space-around;
+    font-size: 1.2rem;
+    margin-top: 1rem;
+  }
+  
+  .content {
+    margin-left: 270px;
+    padding: 2rem;
+    flex-grow: 1;
+  }
+  
+  .about h1 {
+    font-size: 2rem;
+    color: #4a3aff;
+    margin-bottom: 1rem;
+  }
+  
+  .about blockquote {
+    background: #f0f1ff;
+    border-left: 4px solid #4a3aff;
+    padding: 1rem;
+    margin-bottom: 1.5rem;
+    font-style: italic;
+    color: #4a3aff;
+    border-radius: 6px;
+  }
+  
+  .skills {
+    display: flex;
+    gap: 1rem;
+    margin: 2rem 0;
+    flex-wrap: wrap;
+  }
+  
+  .card {
+    background: #fff;
+    padding: 1rem;
+    border-radius: 12px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.05);
+    text-align: center;
+    flex: 1;
+    min-width: 200px;
+  }
+  
+  .card i {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+    color: #4a3aff;
+  }
+  
+  .contact-icons {
+    display: flex;
+    gap: 2rem;
+    margin-top: 2rem;
+    flex-wrap: wrap;
+  }
+  
+  .contact-icons div {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  
